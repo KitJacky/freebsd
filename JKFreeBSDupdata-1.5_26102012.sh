@@ -1,5 +1,5 @@
 #!/bin/sh
-# jkupdate.sh  / JKFreeBSDupdata-1.4_12012010.sh
+# jkupdate.sh  / JKFreeBSDupdata-1.5_26102012.sh
 # FreeBSD JK Upgrade Script. - CVSUP
 # Powered By JackyKit. 2002 - 2003 - 2005 - 2006 - 2010
 # Version 0.1, 0.2, 0.3, 0.5, 0.9 , 1.0 (2003), 1.1, 1.2 (18-05-2006) , 1.4  (12-01-2010) , 1.5  (26-10-2012) 
