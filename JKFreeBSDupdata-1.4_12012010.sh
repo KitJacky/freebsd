@@ -3,7 +3,7 @@
 # FreeBSD JK Upgrade Script. - CVSUP
 # Powered By JackyKit. 2002 - 2003 - 2005 - 2006 - 2010
 # Version 0.1, 0.2, 0.3, 0.5, 0.9 , 1.0 (2003), 1.1, 1.2 (18-05-2006) , 1.4  (12-01-2010) 
-# Email : jk@jk.hk
+# Email : jk@jk.hk  Web : www.jackykit.com
 
 #Freebsd version 4.x, 5.x, 6.x, 7.x, 8.x  selection to append. 
 
@@ -47,18 +47,18 @@ mv $FileA $FileB
 ./$FileB
 else echo -e "\\033[1;35m""Can't Find [ $FileA ]""\\033[0;39m"
 echo "Can't Find [ $FileA ]" >> $LOGFILE
-        if [ -x $FileB ]; then
-                echo -e "\\033[0;37m"[$FileB FOUND]"\\033[0;39m"
-        else
-                echo "Can't Find [ $FileB ]" >> $LOGFILE
-                echo -e "\\033[1;32m""Sorry, the Script Error!""\\033[0;39m"
-                echo " [ Sorry, the Script Error! ]" >> $LOGFILE
-                exit 0
-        fi
+	if [ -x $FileB ]; then
+		echo -e "\\033[0;37m"[$FileB FOUND]"\\033[0;39m"
+	else
+		echo "Can't Find [ $FileB ]" >> $LOGFILE
+		echo -e "\\033[1;32m""Sorry, the Script Error!""\\033[0;39m"
+		echo " [ Sorry, the Script Error! ]" >> $LOGFILE
+		exit 0
+	fi
 fi
 
 
-
+	
 
 echo
 echo
@@ -102,27 +102,27 @@ if [ -x /bin/cvsup ] || [ -x /usr/bin/cvsup ] || [ -x /usr/sbin/cvsup ] || [ -x 
      `whereis pkg_add | awk '{print $2}'` -r cvsup-without-gui
      else
       echo "Can't Find [pkg_add] or cvsup-without-gui" >> $LOGFILE
-          echo
+  	  echo
    fi 
    
    if [ -x /bin/cvsup ] || [ -x /usr/bin/cvsup ] || [ -x /usr/sbin/cvsup ] || [ -x /usr/local/bin/cvsup ]; then
     echo -e "\\033[0;37m"[FOUND]"\\033[0;39m"
-                echo -n "  Checking for make ..... "
+		echo -n "  Checking for make ..... "
    else echo -e "\\033[1;35m""Can't Find [cvsup], now port install""\\033[0;39m"
     
-            if [ -x /usr/ports/net/cvsup-without-gui ]; then
-             echo -e "\\033[0;37m"[FOUND]"\\033[0;39m"
-             echo "INSTALL"
-             cd /usr/ports/net/cvsup-without-gui ;make install clean distclean
-             echo " CVSup install success" >> $LOGFILE
-             echo " CVSup install success"
-             ./$FileB
-             exit 0;
-            else echo -e "\\033[1;35m""Can't Find [CVSup Ports install packages]""\\033[0;39m"
-              echo "Can't Find  [CVSup Ports install packages]" >> $LOGFILE
-              exit 0
+	    if [ -x /usr/ports/net/cvsup-without-gui ]; then
+	     echo -e "\\033[0;37m"[FOUND]"\\033[0;39m"
+	     echo "INSTALL"
+	     cd /usr/ports/net/cvsup-without-gui ;make install clean distclean
+	     echo " CVSup install success" >> $LOGFILE
+	     echo " CVSup install success"
+	     ./$FileB
+	     exit 0;
+	    else echo -e "\\033[1;35m""Can't Find [CVSup Ports install packages]""\\033[0;39m"
+	      echo "Can't Find  [CVSup Ports install packages]" >> $LOGFILE
+	      exit 0
     fi
-        fi
+	fi
 fi
 
 
@@ -173,8 +173,8 @@ fi
 ##### Kernel Cvsup
 jkSysCvsup()
 {
-
-        JKINIT()
+	
+	JKINIT()
 {
 case "`echo 'x\c'`" in
    'x\c')   echo="echo -n"    nnl= ;;
@@ -206,7 +206,7 @@ JKINIT
 
 
 
-
+	
 echo -e "\\033[1;36m" Now, CVSUP your new kernel Source : ] "\\033[0;39m"
 echo
 echo "CVSUP...." >> $LOGFILE
@@ -443,28 +443,28 @@ case "$1" in
 ports)
 jkfreebsdup
 jkportsup
-        ;;
-
+	;;
+	
 cvssrc)
 CVSFILE="cvsupfile$2_0-stable"
 CVSLINK="http://jackykit.com/JKScript/FreeBSD/cvsup/cvsupfile$2_0-stable"
 jkfreebsdup
 jkSysCvsup
-        ;;
+	;;
 
 kernel)
 CVSFILE="cvsupfile$2_0-stable"
 CVSLINK="http://jackykit.com/JKScript/FreeBSD/cvsup/cvsupfile$2_0-stable"
 jkfreebsdup
 jkKernel
-        ;;
-
+	;;
+		
 build)
 CVSFILE="cvsupfile$2_0-stable"
 CVSLINK="http://jackykit.com/JKScript/FreeBSD/cvsup/cvsupfile$2_0-stable"
 jkfreebsdup
 jkbuild
-        ;;
+	;;
 *)
 
 
@@ -487,7 +487,7 @@ echo -e "\\033[1;33m"your Server Hostname is ? $HOSTNAME"\\033[0;39m"
        echo -e "\\033[1;37m" $"Usage: $0""\\033[0;39m"
        echo "        { ports | cvssrc {4|5|6|7|8} | kernel {4|5|6|7|8} | build {4|5|6|7|8} }"
        echo ""
-        ;;
+	;;
 esac
 echo -e "\\033[1;33m"FreeBSD JK Upgrade Script."\\033[0;39m"
 echo -e "\\033[1;31m"Powered By JackyKit. 2002-2010 Version 0.1, 0.2, 0.3, 0.5, 0.9, 1.0{2003}, 1.1, 1.2{2006}, 1.3{14-05-2008}, 1.4{12-01-2010}"\\033[0;39m"

@@ -1,0 +1,3 @@
+
+#pwd_mkdb master.passwd
+#pwd_mkdb -p -d /etc /etc/master.passwd
